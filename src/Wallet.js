@@ -143,7 +143,7 @@ module.exports = function (password) {
   var api = {};                       // wallet public methods
   var _private = {};                  // wallet private methods
 
-  var raiwalletdotcomRepresentative = "xrb_3pczxuorp48td8645bs3m6c3xotxd3idskrenmi65rbrga5zmkemzhwkaznh"; // self explaining
+  var defaultRepresentative = "nano_1brainb3zz81wmhxndsbrjb94hx3fhr1fyydmg6iresyk76f3k7y7jiazoji"; // self explaining
 
   var current;                        // current active key (shortcut for keys[currentIdx])
   var currentIdx = -1;                // key being used
@@ -769,7 +769,7 @@ module.exports = function (password) {
     else {
       rep = api.getRepresentative();
       if (!rep)
-        rep = raiwalletdotcomRepresentative;
+        rep = defaultRepresentative;
     }
 
     blk.setSendParameters(current.lastPendingBlock, to, remaining);
@@ -850,7 +850,7 @@ module.exports = function (password) {
       rep = api.getRepresentative();
     }
     if (!rep) // first block
-      rep = raiwalletdotcomRepresentative;
+      rep = defaultRepresentative;
     blk.setRepresentative(rep);
     blk.build();
     blk.setAmount(amount);
